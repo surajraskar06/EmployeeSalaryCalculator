@@ -1,0 +1,76 @@
+﻿@model TblEmployeeSalary
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+    ViewData["Title"] = "Salary Slip";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Employee Salary Slip</h3>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Employee ID</th>
+                    <td>@Model.EmployeeId</td>
+                </tr>
+
+                <tr>
+                    <th>Employee Name</th>
+                    <td>@Model.EmployeeName</td>
+                </tr>
+
+                <tr>
+                    <th>Department</th>
+                    <td>@Model.Department</td>
+                </tr>
+
+                <tr>
+                    <th>Designation</th>
+                    <td>@Model.Designation</td>
+                </tr>
+
+                <tr>
+                    <th>Basic Salary</th>
+                    <td>₹ @Model.BasicSalary</td>
+                </tr>
+
+                <tr>
+                    <th>HRA</th>
+                    <td>₹ @Model.HouseRentAllowance</td>
+                </tr>
+
+                <tr>
+                    <th>DA</th>
+                    <td>₹ @Model.DearnessAllowance</td>
+                </tr>
+
+                <tr>
+                    <th>PF</th>
+                    <td>₹ @Model.ProvidentFund</td>
+                </tr>
+
+                <tr>
+                    <th>Gross Salary</th>
+                    <td>₹ @Model.GrossSalary</td>
+                </tr>
+
+                <tr>
+                    <th>Net Salary</th>
+                    <td><b>₹ @Model.NetSalary</b></td>
+                </tr>
+
+            </table>
+
+            <button class="btn btn-primary no-print" onclick="window.print()">Print Salary Slip</button>
+
+            <a href="/Employee/Index" class="btn btn-secondary no-print">Back</a>
+
+        </div>
+    </div>
+</div>

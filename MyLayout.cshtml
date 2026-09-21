@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "MyLayout";
+}
+
+<h2 style="text-align:center">...Salary Calculate...</h2>
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My_Layout</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<div class="conatiner-fluid">
+    <div class="row">
+        @* <div class="col-md-1"> *@
+            @* <ul class="list-group"> *@
+
+
+                @* <li class="list-group-item"><a href="/Employee/Index">DashBorad</a></li> *@
+                @* <li class="list-group-item"><a href="/Employee/Index">Invoice</a></li>
+                <li class="list-group-item"><a href="/Employee/Index">Products</a></li>
+                <li class="list-group-item"><a href="/Employee/Index">Customers</a></li> *@
+
+            @* </ul> *@
+        @* </div> *@
+        <div class="">
+            @RenderBody()
+        </div>
+    </div>
+</div>

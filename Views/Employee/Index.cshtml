@@ -1,0 +1,99 @@
+﻿@model TblEmployeeSalary
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+
+			@using (Html.BeginForm())
+			{
+				<div class="card">
+					<div class="card-header bg-primary">
+						<div class="card-title ">
+							<h3 class="text-white">Enter Details</h3>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="mb-3">
+							@* <label>Employee Id </label> *@
+							@Html.HiddenFor(e=>e.EmployeeId, new { @class="form-control"})
+						</div>
+						<div class="mb-3">
+							<label>Employee Name </label>
+							@Html.TextBoxFor(e=>e.EmployeeName, new { @class="form-control"})
+						</div>
+						<div class="mb-3">
+							<label>Department </label>
+							@Html.TextBoxFor(e=>e.Department, new { @class="form-control"})
+						</div>
+						<div class="mb-3">
+							<label>Designation </label>
+							@Html.TextBoxFor(e=>e.Designation, new { @class="form-control"})
+						</div>
+						<div class="mb-3">
+							<label>Basic Salary </label>
+							@Html.TextBoxFor(e=>e.BasicSalary, new { @class="form-control", type="number"})
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Save" class="btn btn-primary btn-sm"/>
+						<input type="button" value="Clear" class="btn btn-danger btn-sm" />
+					</div>
+				</div>
+				<h4>@ViewBag.mes</h4>
+				
+			}
+
+		</div>
+		<div class="col-md-10">
+			@{
+				List<TblEmployeeSalary> lst = (List<TblEmployeeSalary>)ViewData["employee"];
+			}
+
+			<table class="table table-bordered table-striped">
+				<thed>
+					<tr class="bg-primary text-white">
+						<th>Employee Id</th>
+						<th>Employee Name</th>
+						<th>Department</th>
+						<th>Designation</th>
+						<th>Basic Salary</th>
+						<th>HouseRentAllowance</th>
+						<th>DearnessAllowance</th>
+						<th>ProvidentFund</th>
+						<th>GrossSalary</th>
+						<th>NetSalary</th>
+						<th>Action </th>
+					</tr>
+				</thed>
+				<tbody>
+					@foreach (var i in lst)
+					{
+						<tr>
+							<td>@i.EmployeeId</td>
+							<td>@i.EmployeeName</td>
+							<td>@i.Department</td>
+							<td>@i.Designation</td>
+							<td>@i.BasicSalary</td>
+							<td>@i.HouseRentAllowance</td>
+							<td>@i.DearnessAllowance</td>
+							<td>@i.ProvidentFund</td>
+							<td>@i.GrossSalary</td>
+							<td>@i.NetSalary</td>
+							<td colspan="4">
+								<a href="/Employee/Edit/@i.EmployeeId" class="btn btn-primary btn-sm">Edit</a>
+								<a href="/Employee/Delete/@i.EmployeeId" class="btn btn-danger btn-sm">Delete</a>
+								<a href="/Employee/SalarySlip/@i.EmployeeId" class="btn btn-success btn-sm ">
+									Salary-Slip
+								</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
